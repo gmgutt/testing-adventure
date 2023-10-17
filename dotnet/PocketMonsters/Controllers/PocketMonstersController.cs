@@ -15,13 +15,13 @@ public class PocketMonstersController : ControllerBase
     }
 
     [HttpGet("species/{id}")]
-    public async Task<List<Species>> getSpecies(long id)
+    public async Task<List<Species>> GetSpecies(long id)
     {
         return await _context.Species.Where(s => s.Id == id).ToListAsync();
     }
 
     [HttpPost("species")]
-    public async void createSpecies([FromBody] Species species)
+    public async void CreateSpecies([FromBody] Species species)
     {
         await _context.AddAsync<Species>(species);
 
